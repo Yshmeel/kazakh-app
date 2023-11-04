@@ -14,8 +14,8 @@
 }
 
 .chatInner {
-    min-height: 73vh;
-    max-height: 73vh;
+    min-height: 55vh;
+    max-height: 55vh;
     margin-bottom: 20px;
     overflow: auto;
     height: 100%;

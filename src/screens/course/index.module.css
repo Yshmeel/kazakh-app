@@ -1,5 +1,6 @@
 .vocabularyScrolling {
     max-height: 60vh;
+    padding-bottom: 15vh;
     overflow: auto;
 }
 
