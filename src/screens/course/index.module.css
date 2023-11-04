@@ -1,0 +1,32 @@
+.vocabularyScrolling {
+    max-height: 60vh;
+    overflow: auto;
+}
+
+.task {
+    transition: .4s ease;
+    opacity: 0 !important;
+}
+.loaded {
+    opacity: 1 !important;
+}
+
+
+.cheerFirstImage {
+    position: relative;
+    top: 15vh;
+}
+
+
+.cheerFirstText {
+    font-size: 29px;
+    text-align: center;
+    margin-top: 97px;
+}
+
+
+.completedImage {
+    position: relative;
+    top: 16vh;
+    zoom: 0.8;
+}

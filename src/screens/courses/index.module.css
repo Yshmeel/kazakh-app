@@ -1,0 +1,31 @@
+.courses {
+
+}
+
+.coursesInner {
+    max-height: 80vh;
+    overflow: auto;
+    padding: 0 10px;
+}
+
+.courseSectionHeader {
+    padding: 10px 30px;
+    position: relative;
+    color: var(--chakra-colors-gray-300);
+}
+
+.courseSectionHeader::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 20px;
+    height: 2px;
+    background: var(--chakra-colors-gray-300);
+}
+
+.coursesListFuture {
+    min-height: 250px;
+}

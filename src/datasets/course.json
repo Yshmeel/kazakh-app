@@ -1,0 +1,138 @@
+[
+  {
+    "key": "first_common",
+    "title": "Знакомство. Основы",
+    "description": "Начнем изучение казахского с основ",
+    "level": 1,
+    "locked_by": [],
+    "tasks_dataset": [
+      {
+        "type": "vocabulary",
+        "title": "Перед началом курса, повторите данные слова. Они будут использоваться по ходу прохождения задания.",
+        "payload": {
+          "words": [
+            ["сәлеметсізбе", "здраствуйте"],
+            ["Салем", "привет"],
+            ["Менің", "мое"],
+            ["аты", "имя"],
+            ["Сау-бол", "пока"],
+            ["бұл", "это"],
+            ["Рахмет", "спасибо"]
+          ]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/ogg_voice/1_1.ogg",
+        "payload": {
+          "sentence": "Салем",
+          "correct_sentence": ["привет"],
+          "available_words": ["я", "привет", "это", "ты", "аслан"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/ogg_voice/1_2.ogg",
+        "payload": {
+          "sentence": "Сәлем, Аслан",
+          "correct_sentence": ["привет", "аслан"],
+          "available_words": ["аслан", "пока", "привет", "спасибо"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/ogg_voice/1_4.ogg",
+        "payload": {
+          "sentence": "Менің",
+          "correct_sentence": ["мое"],
+          "available_words": ["мое", "твое", "имя", "спасибо"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/ogg_voice/1_3.ogg",
+        "payload": {
+          "sentence": "Бұл Аслан",
+          "correct_sentence": ["это", "аслан"],
+          "available_words": ["мама", "Аслан", "программист", "это"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/ogg_voice/1_5.ogg",
+        "payload": {
+          "sentence": "Бұл Айгерім",
+          "correct_sentence": ["это", "айгерім"],
+          "available_words": ["добро пожаловать", "Айгерім", "и", "мама", "это"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/ogg_voice/1_6.ogg",
+        "payload": {
+          "sentence": "Менің атым",
+          "correct_sentence": ["мое", "имя"],
+          "available_words": ["здравствуйте", "Алихан", "мое", "Привет", "имя"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/ogg_voice/1_7.ogg",
+        "payload": {
+          "sentence": "Менің атым Айгерім",
+          "correct_sentence": ["мое", "имя", "айгерім"],
+          "available_words": ["я", "Айгерім", "мое", "мама", "имя"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/ogg_voice/1_9.ogg",
+        "payload": {
+          "sentence": "Рахмет, Алихан",
+          "correct_sentence": ["спасибо", "алихан"],
+          "available_words": ["мое", "Алихан", "привет", "мама", "спасибо"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/ogg_voice/2_0.ogg",
+        "payload": {
+          "sentence": "Менің атым Нұрали",
+          "correct_sentence": ["мое", "имя", "нұрали"],
+          "available_words": ["Нұрали", "мое", "имя", "Руслан", "мен"]
+        }
+      }
+    ]
+  },
+  {
+    "key": "first_pin",
+    "title": "Знакомство. Закрепление",
+    "description": "Закрепление основ и не только",
+    "level": 1,
+    "locked_by": ["first_common"],
+    "tasks_dataset": [
+      {
+        "type": "complete",
+        "sound": "/ogg_voice/2_1.ogg",
+        "payload": {
+          "sentence": "Жақсы",
+          "correct_sentence": ["мое", "имя", "нұрали"],
+          "available_words": ["Нұрали", "мое", "имя", "Руслан", "мен"]
+        }
+      }
+    ]
+  },
+  {
+    "key": "first_exam",
+    "title": "Знакомство. Экзамен",
+    "description": "Ваш первый экзамен, өмірімдегі бірінші емес",
+    "level": 1,
+    "is_exam": true,
+    "locked_by": ["first_common", "first_pin"],
+    "tasks_dataset": [
+      {
+        "sentence": ""
+      }
+    ]
+  }
+]

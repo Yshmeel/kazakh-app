@@ -1,0 +1,15 @@
+.vocabulary {
+
+}
+
+.vocabularyInner {
+    padding: 0 10px;
+}
+
+.vocabularyList {
+    max-height: 80vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

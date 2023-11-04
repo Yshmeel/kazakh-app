@@ -1,0 +1,28 @@
+.chatForm textarea {
+    width: 90%;
+}
+
+.chatForm button {
+    width: 10%;
+}
+
+.chatForm form {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+}
+
+.chatInner {
+    min-height: 73vh;
+    max-height: 73vh;
+    margin-bottom: 20px;
+    overflow: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.chat {
+    padding: 10px;
+}
