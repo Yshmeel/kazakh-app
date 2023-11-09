@@ -3,10 +3,8 @@ import {AppContext} from "../../contexts/app.context.js";
 import {Link, useNavigate} from "react-router-dom";
 import styles from './index.module.css'
 import courses from '../../datasets/course.json'
-import {Box, Flex, Text} from "@chakra-ui/react";
-import clsx from "clsx";
+import {Flex} from "@chakra-ui/react";
 import CourseCard from "../../components/course-card/index.jsx";
-import app from "../../App.jsx";
 
 const CoursesScreen = () => {
     const appContext = useContext(AppContext);
@@ -56,19 +54,6 @@ const CoursesScreen = () => {
                         </Flex>
                     </div>
 
-                    {/*<div className={clsx(styles.courseSection, styles.courseSectionDisabled)}>*/}
-                    {/*    <div className={styles.courseSectionHeader}>*/}
-                    {/*        2. Вопросительные*/}
-                    {/*    </div>*/}
-
-                    {/*    <div className={styles.coursesList}>*/}
-                    {/*        <Box p={4} bg={'gray.300'} color={"gray.900"} borderRadius={8}*/}
-                    {/*             opacity={0.4}*/}
-                    {/*             className={styles.coursesListFuture}>*/}
-                    {/*            <Text>В будущих версиях приложения</Text>*/}
-                    {/*        </Box>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
                 </div>
             </div>
         </section>

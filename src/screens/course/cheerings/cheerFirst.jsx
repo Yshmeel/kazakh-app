@@ -26,7 +26,9 @@ const CourseCheerFirst = (props) => {
                 Продолжить
             </Button>
 
-            <img src={Kyz1} className={styles.cheerFirstImage} />
+            <div className={styles.cheerFirstImageWrapper}>
+                <img src={Kyz1} className={styles.cheerFirstImage} />
+            </div>
         </Flex>
     )
 };

@@ -93,18 +93,26 @@ const ChatScreen = () => {
                 </Box>
                 <Flex bg={'gray.800'} p={3} m={2} borderRadius={16} direction={'row'} className={styles.chatForm}>
                     <form onSubmit={sendMessage}>
-                        <Textarea placeholder='Салем, я изучаю казахский!'
-                                  color={'gray.200'}
-                                  value={message}
-                                  onChange={(e) => {
-                                        setMessage(e.target.value);
-                                    }} />
+                        <Flex direction={'column'}>
+                            <Text color={'gray.300'} mb={2}>
+                                В чате вы можете общаться с учащийся вашего уровня
+                            </Text>
 
-                        <Button bg='orange.600' color='white.300'
-                                type={'submit'}
-                                isDisabled={message.trim().length === 0}>
-                            <Icon as={MdSend} color={'#fff'}/>
-                        </Button>
+                            <Box mb={2}>
+                                <Textarea placeholder='Напишите что-то в чат'
+                                          color={'gray.200'}
+                                          value={message}
+                                          onChange={(e) => {
+                                              setMessage(e.target.value);
+                                          }} />
+                            </Box>
+
+                            <Button bg='orange.600' color='white.300'
+                                    type={'submit'}
+                                    isDisabled={message.trim().length === 0}>
+                                <Icon as={MdSend} color={'#fff'}/>
+                            </Button>
+                        </Flex>
                     </form>
                 </Flex>
             </div>

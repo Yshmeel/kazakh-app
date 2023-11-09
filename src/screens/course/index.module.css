@@ -13,8 +13,17 @@
 
 
 .cheerFirstImage {
+    zoom: 0.5;
+}
+
+.cheerFirstImageWrapper {
     position: relative;
-    top: 15vh;
+    top: 10vh;
+    height: 256px;
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
 
