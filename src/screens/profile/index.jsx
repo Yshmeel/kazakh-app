@@ -1,6 +1,6 @@
 import styles from './index.module.css'
 import {Box, Flex, Text} from "@chakra-ui/react";
-import {useContext, useEffect} from "react";
+import {useContext, useEffect, useMemo} from "react";
 import {AppContext} from "../../contexts/app.context.js";
 import Level from "../../components/level/index.jsx";
 import CourseCard from "../../components/course-card/index.jsx";
@@ -13,6 +13,19 @@ const ProfileScreen = () => {
         if(!appContext.authorized) {
             navigate('/create');
         }
+    }, []);
+
+    const renderedPassedCourses = useMemo(() => {
+        return appContext.user.passed_courses.map((c) => {
+            const course = courses.find((co) => co.key === c.course_key);
+
+            return (
+                <CourseCard title={course.title}
+                            description={course.description}
+                            key={c}
+                />
+            );
+        })
     }, []);
 
     return (
@@ -30,9 +43,10 @@ const ProfileScreen = () => {
                 <Box>
                     <Text fontSize={'md'} color={'gray.300'} mb={2}>Пройденные задания:</Text>
 
-                    <CourseCard title={courses[0].title}
-                                description={courses[0].description}
-                    />
+                    {renderedPassedCourses.length === 0 ? (
+                        <Text fontSize={'md'} color={'red.300'} mb={2}>Еще нет пройденных заданий, учитесь!</Text>
+
+                    ) : renderedPassedCourses}
                 </Box>
             </div>
         </Box>

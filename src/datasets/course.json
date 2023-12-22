@@ -12,7 +12,7 @@
         "payload": {
           "words": [
             ["сәлеметсізбе", "здраствуйте"],
-            ["Салем", "привет"],
+            ["Сәлем", "привет"],
             ["Менің", "мое"],
             ["аты", "имя"],
             ["Сау-бол", "пока"],
@@ -23,16 +23,16 @@
       },
       {
         "type": "complete",
-        "sound": "/ogg_voice/1_1.ogg",
+        "sound": "/wav_voice/1_1.wav",
         "payload": {
-          "sentence": "Салем",
+          "sentence": "Сәлем",
           "correct_sentence": ["привет"],
           "available_words": ["я", "привет", "это", "ты", "аслан"]
         }
       },
       {
         "type": "complete",
-        "sound": "/ogg_voice/1_2.ogg",
+        "sound": "/wav_voice/1_2.wav",
         "payload": {
           "sentence": "Сәлем, Аслан",
           "correct_sentence": ["привет", "аслан"],
@@ -41,7 +41,7 @@
       },
       {
         "type": "complete",
-        "sound": "/ogg_voice/1_4.ogg",
+        "sound": "/wav_voice/1_4.wav",
         "payload": {
           "sentence": "Менің",
           "correct_sentence": ["мое"],
@@ -50,7 +50,7 @@
       },
       {
         "type": "complete",
-        "sound": "/ogg_voice/1_3.ogg",
+        "sound": "/wav_voice/1_3.wav",
         "payload": {
           "sentence": "Бұл Аслан",
           "correct_sentence": ["это", "аслан"],
@@ -59,7 +59,7 @@
       },
       {
         "type": "complete",
-        "sound": "/ogg_voice/1_5.ogg",
+        "sound": "/wav_voice/1_5.wav",
         "payload": {
           "sentence": "Бұл Айгерім",
           "correct_sentence": ["это", "айгерім"],
@@ -68,7 +68,7 @@
       },
       {
         "type": "complete",
-        "sound": "/ogg_voice/1_6.ogg",
+        "sound": "/wav_voice/1_6.wav",
         "payload": {
           "sentence": "Менің атым",
           "correct_sentence": ["мое", "имя"],
@@ -77,7 +77,7 @@
       },
       {
         "type": "complete",
-        "sound": "/ogg_voice/1_7.ogg",
+        "sound": "/wav_voice/1_7.wav",
         "payload": {
           "sentence": "Менің атым Айгерім",
           "correct_sentence": ["мое", "имя", "айгерім"],
@@ -86,16 +86,16 @@
       },
       {
         "type": "complete",
-        "sound": "/ogg_voice/1_9.ogg",
+        "sound": "/wav_voice/1_9.wav",
         "payload": {
-          "sentence": "Рахмет, Алихан",
+          "sentence": "Рақмет, Алихан",
           "correct_sentence": ["спасибо", "алихан"],
           "available_words": ["мое", "Алихан", "привет", "мама", "спасибо"]
         }
       },
       {
         "type": "complete",
-        "sound": "/ogg_voice/2_0.ogg",
+        "sound": "/wav_voice/1_10.wav",
         "payload": {
           "sentence": "Менің атым Нұрали",
           "correct_sentence": ["мое", "имя", "нұрали"],
@@ -112,12 +112,83 @@
     "locked_by": ["first_common"],
     "tasks_dataset": [
       {
+        "type": "vocabulary",
+        "title": "Перед началом курса, повторите данные слова. Они будут использоваться по ходу прохождения задания.",
+        "payload": {
+          "words": [
+            ["Танысқаныма қуаныштымын", "приятно познакомиться"],
+            ["менде", "и я тоже"],
+            ["қалын қалай?", "как дела?"],
+            ["Жақсы", "хорошо, отлично"],
+            ["жаман емес", "неплохо"],
+            ["сенің атын кім", "а как тебя зовут?"],
+            ["Сенің", "твое"],
+            ["сіздің", "ваше"],
+            ["оның", "его, ее"]
+          ]
+        }
+      },
+      {
         "type": "complete",
-        "sound": "/ogg_voice/2_1.ogg",
+        "sound": "/wav_voice/2_1.wav",
         "payload": {
           "sentence": "Жақсы",
-          "correct_sentence": ["мое", "имя", "нұрали"],
-          "available_words": ["Нұрали", "мое", "имя", "Руслан", "мен"]
+          "correct_sentence": ["отлично"],
+          "available_words": ["твое", "неплохо", "приятно", "отлично"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/2_2.wav",
+        "payload": {
+          "sentence": "Қалын қалай?",
+          "correct_sentence": ["как", "дела"],
+          "available_words": ["как", "я тоже", "отлично", "дела"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/2_3.wav",
+        "payload": {
+          "sentence": "Сенің атын кім?",
+          "correct_sentence": ["как", "тебя", "зовут"],
+          "available_words": ["как Айгерім", "как", "спасибо", "привет", "тебя", "зовут"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/2_4.wav",
+        "payload": {
+          "sentence": "Жаман емес",
+          "correct_sentence": ["неплохо"],
+          "available_words": ["неплохо", "отлично", "привет", "а ты"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/2_5.wav",
+        "payload": {
+          "sentence": "Танысқаныма қуаныштымын",
+          "correct_sentence": ["приятно", "познакомиться"],
+          "available_words": ["Привет", "приятно", "өзің", "сенің", "познакомиться"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/2_6.wav",
+        "payload": {
+          "sentence": "Менде",
+          "correct_sentence": ["я тоже"],
+          "available_words": ["а ты", "как дела?", "я тоже"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/2_7.wav",
+        "payload": {
+          "sentence": "оның",
+          "correct_sentence": ["его"],
+          "available_words": ["твое", "я тоже", "отлично", "его"]
         }
       }
     ]
@@ -131,7 +202,103 @@
     "locked_by": ["first_common", "first_pin"],
     "tasks_dataset": [
       {
-        "sentence": ""
+        "type": "complete",
+        "sound": "/wav_voice/2_3.wav",
+        "payload": {
+          "sentence": "Сенің атын кім?",
+          "correct_sentence": ["как", "тебя", "зовут"],
+          "available_words": ["как Айгерім", "как", "спасибо", "привет", "тебя", "зовут"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/2_7.wav",
+        "payload": {
+          "sentence": "оның",
+          "correct_sentence": ["его"],
+          "available_words": ["твое", "я тоже", "отлично", "его"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/2_6.wav",
+        "payload": {
+          "sentence": "Менде",
+          "correct_sentence": ["я тоже"],
+          "available_words": ["а ты", "как дела?", "я тоже"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/1_10.wav",
+        "payload": {
+          "sentence": "Менің атым Нұрали",
+          "correct_sentence": ["мое", "имя", "нұрали"],
+          "available_words": ["Нұрали", "мое", "имя", "Руслан", "мен"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/1_5.wav",
+        "payload": {
+          "sentence": "Бұл Айгерім",
+          "correct_sentence": ["это", "айгерім"],
+          "available_words": ["добро пожаловать", "Айгерім", "и", "мама", "это"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/1_2.wav",
+        "payload": {
+          "sentence": "Сәлем, Аслан",
+          "correct_sentence": ["привет", "аслан"],
+          "available_words": ["аслан", "пока", "привет", "спасибо"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/1_7.wav",
+        "payload": {
+          "sentence": "Менің атым Айгерім",
+          "correct_sentence": ["мое", "имя", "айгерім"],
+          "available_words": ["я", "Айгерім", "мое", "мама", "имя"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/1_9.wav",
+        "payload": {
+          "sentence": "Рақмет, Алихан",
+          "correct_sentence": ["спасибо", "алихан"],
+          "available_words": ["мое", "Алихан", "привет", "мама", "спасибо"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/2_3.wav",
+        "payload": {
+          "sentence": "Сенің атын кім?",
+          "correct_sentence": ["как", "тебя", "зовут"],
+          "available_words": ["как Айгерім", "как", "спасибо", "привет", "тебя", "зовут"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/2_4.wav",
+        "payload": {
+          "sentence": "Жаман емес",
+          "correct_sentence": ["неплохо"],
+          "available_words": ["неплохо", "отлично", "привет", "а ты"]
+        }
+      },
+      {
+        "type": "complete",
+        "sound": "/wav_voice/2_5.wav",
+        "payload": {
+          "sentence": "Танысқаныма қуаныштымын",
+          "correct_sentence": ["приятно", "познакомиться"],
+          "available_words": ["Привет", "приятно", "өзің", "сенің", "познакомиться"]
+        }
       }
     ]
   }

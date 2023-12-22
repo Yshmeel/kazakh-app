@@ -1,7 +1,6 @@
 import styles from '../index.module.css'
 import {Box, Button, Flex, Text} from "@chakra-ui/react";
-import {useContext, useEffect, useId, useMemo, useRef, useState,} from "react";
-import {AppContext} from "../../../contexts/app.context.js";
+import {useEffect, useId, useMemo, useRef, useState,} from "react";
 import useSound from "use-sound";
 import {MdVolumeUp} from "react-icons/md";
 import {Icon} from "@chakra-ui/icons";
@@ -10,6 +9,7 @@ import clsx from "clsx";
 const CourseTaskComplete = (props) => {
     const {
         dataset,
+        disabled,
         onCompleteTask,
         onFailTask
     } = props;
@@ -18,13 +18,16 @@ const CourseTaskComplete = (props) => {
 
     const [loaded, setLoaded] = useState(false);
     const [selectedWords, setSelectedWords] = useState([]);
-    const appContext = useContext(AppContext);
 
     const timeoutRef = useRef(() => null);
 
     const id = useId();
 
     const selectWord = (word) => () => {
+        if(disabled) {
+            return;
+        }
+
         setSelectedWords((prev) => {
             if(!prev.includes(word)) {
                 return [
@@ -38,6 +41,10 @@ const CourseTaskComplete = (props) => {
     };
 
     const unselectWord = (word) => () => {
+        if(disabled) {
+            return;
+        }
+
         setSelectedWords((prev) => {
             if(prev.includes(word)) {
                 return prev.filter((w) => w !== word);

@@ -14,10 +14,11 @@ const WordRenderer = (props) => {
         word,
     } = props;
 
-    const [play] = useSound(getAudioByURL(word), { volume: 0.5 });
+    const [play] = useSound(getAudioByURL(word), { volume: 0.5, soundEnabled: true, html5: true });
 
     const onClick = () => {
-        play();
+        const audio = new Audio(getAudioByURL(word));
+        audio.play();
     };
 
     return (

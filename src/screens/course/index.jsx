@@ -12,13 +12,14 @@ import api from "../../shared/api/index.js";
 import {AppContext} from "../../contexts/app.context.js";
 import Kyz2 from '../../assets/kyz2.png'
 
-const CourseScreen = (props) => {
+const CourseScreen = () => {
     const [course, setCourse] = useState(null);
     const [currentTask, setCurrentTask] = useState([null, null]);
     const [failedTasks, setFailedTasks] = useState([]);
     const [cheeringID, setCheeringID] = useState(null);
     const [loaded, setLoaded] = useState(false);
     const [completed, setCompleted] = useState(false);
+    const [currentTaskCompilation, setCurrentTaskCompilation] = useState(0);
     const params = useParams();
 
     const navigate = useNavigate();
@@ -38,6 +39,7 @@ const CourseScreen = (props) => {
         if(co === null) {
             navigate('/');
         } else {
+            setCurrentTaskCompilation(0);
             setCurrentTask( [0, co.tasks_dataset[0]]);
             setCourse(co);
 
@@ -53,13 +55,22 @@ const CourseScreen = (props) => {
                 const response = await api.passCourse(course.key, failedTasks.length);
                 appContext.updatePassedCourses(response.data.data);
             } catch(e) {
-                // toast(getToast('Что-то пошло не так при сохранении результата', 'danger'));
+                toast(getToast('Что-то пошло не так при сохранении результата', 'danger'));
                 console.error(e);
             }
         }());
     };
 
     const onCompleteTask = () => {
+        if(currentTask[1].type === 'vocabulary') {
+            completeTask();
+            return;
+        }
+
+        setCurrentTaskCompilation(1);
+    };
+
+    const completeTask = () => {
         const nextIndex = currentTask[0] + 1;
         const nextTask = course.tasks_dataset[nextIndex];
 
@@ -73,12 +84,11 @@ const CourseScreen = (props) => {
         }
 
         setCurrentTask([nextIndex, nextTask]);
+        setCurrentTaskCompilation(0);
     };
 
     const onFailTask = () => {
-        if(!failedTasks.includes(currentTask[0])) {
-            toast(getToast('Неверный ответ', 'danger'));
-        }
+        setCurrentTaskCompilation(-1);
 
         setFailedTasks((prev) => {
             if(!prev.includes(currentTask[0])) {
@@ -119,6 +129,7 @@ const CourseScreen = (props) => {
             case 'complete':
                 return (
                     <CourseTaskComplete dataset={currentTask[1]}
+                                        disabled={currentTaskCompilation !== 0}
                                         key={`current-task-${currentTask[0]}-complete`}
                                         onCompleteTask={onCompleteTask}
                                         onFailTask={onFailTask}/>
@@ -126,12 +137,13 @@ const CourseScreen = (props) => {
             case 'gather':
                 return (
                     <CourseTaskGather dataset={currentTask[1]}
+                                      disabled={currentTaskCompilation !== 0}
                                         key={`current-task-${currentTask[0]}`}
                                         onCompleteTask={onCompleteTask}
                                         onFailTask={onFailTask}/>
                 );
         }
-    }, [currentTask, currentTask[0], cheeringID]);
+    }, [currentTask, currentTask[0], cheeringID, currentTaskCompilation]);
 
     if(!loaded) {
         return null;
@@ -157,10 +169,10 @@ const CourseScreen = (props) => {
                          justifyContent={'center'}
                          direction={'column'}
                          color={'gray.200'}>
-                        <Text fontSize={'xl'} fontWeight={'bold'} mb={2}>Ты умница!</Text>
-                        <Text fontSize={'md'} mb={4}>Поздравляем с прохождением занятия, это было восхитительно! Пойдем еще?</Text>
+                        <Text fontSize={'xl'} fontWeight={'bold'} mb={2}>Молодец!</Text>
+                        <Text fontSize={'md'} mb={4}>Поздравляем с прохождением модуля, это было восхитительно! Пройдем еще?</Text>
                         <Button as={Link} to={'/courses'} bg={'orange.500'} color={'gray.200'}>
-                            Пойдем
+                            Пройдем!
                         </Button>
 
                         <img src={Kyz2} className={styles.completedImage} />
@@ -172,7 +184,7 @@ const CourseScreen = (props) => {
 
     return (
         <section className={styles.course}>
-            <div className="container">
+            <Box height='100dvh' className="container">
                 <Flex bg={'gray.800'} color={'gray.200'} p={4} justifyContent='space-between' className={styles.header}>
                     <Box>
                         <Text fontSize={'md'} opacity={'.7'}>Текущее задание</Text>
@@ -189,7 +201,48 @@ const CourseScreen = (props) => {
                      key={`current-task-${currentTask[0]}-wrapper`}>
                     {renderedCurrentTask}
                 </Box>
-            </div>
+
+                {currentTaskCompilation !== 0 && (
+                    <Flex position={'absolute'} bottom={'6vh'} width={'100%'}>
+                        {currentTaskCompilation === 1 ? (
+                            <Box
+                                width={'100%'}
+                                bg={'green.800'}
+                                padding={8}
+                                paddingTop={4}
+                                paddingBottom={12}
+                                borderTopLeftRadius={32}
+                                borderTopRightRadius={32}
+                            >
+                                <Text color={'#fff'} mb={2}>Верный ответ</Text>
+                                <Button bg={'#fff'} display={'inline-block'} onClick={() => {
+                                    setCurrentTaskCompilation(0);
+                                    completeTask();
+                                }}>
+                                    Продолжить
+                                </Button>
+                            </Box>
+                        ) : (
+                            <Box
+                                width={'100%'}
+                                bg={'red.800'}
+                                padding={8}
+                                paddingTop={4}
+                                paddingBottom={12}
+                                borderTopLeftRadius={32}
+                                borderTopRightRadius={32}
+                            >
+                                <Text color={'#fff'} mb={2}>Неверный ответ, попробуй еще раз</Text>
+                                <Button bg={'orange.500'} display={'inline-block'} onClick={() => {
+                                    setCurrentTaskCompilation(0);
+                                }}>
+                                    Понял!
+                                </Button>
+                            </Box>
+                        )}
+                    </Flex>
+                )}
+            </Box>
         </section>
     )
 };

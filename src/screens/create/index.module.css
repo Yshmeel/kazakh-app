@@ -7,7 +7,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100dvh;
 }
 
 .createLogotype {
@@ -18,8 +18,8 @@
 }
 
 .createLogotypeInner {
-    max-width: 128px;
-    max-height: 128px;
+    max-width: 256px;
+    max-height: 256px;
     border-radius: 32px;
     padding: 20px;
 }

@@ -45,14 +45,6 @@ const App = () => {
         });
     };
 
-    const shake = () => {
-        document.querySelector('body').classList.add('shake');
-
-        setTimeout(() => {
-            document.querySelector('body').classList.remove('shake');
-        }, 100);
-    };
-
     const contextValue = {
         token,
         authorized,
@@ -63,7 +55,6 @@ const App = () => {
         setLoaded,
         updateVocabulary,
         updatePassedCourses,
-        shake
     };
 
     return (

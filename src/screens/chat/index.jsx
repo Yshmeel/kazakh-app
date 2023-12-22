@@ -69,11 +69,11 @@ const ChatScreen = () => {
                 <Box p={3} bg={'gray.700'} display={'flex'}
                      m={2}
                      width={'50%'}
+                     borderRadius={16}
                      justifyContent={m.user.id === appContext.user.me.id ? 'flex-end' : 'flex-start'}
                      flexDirection={'column'}
                      key={`message-${m.id}`}>
                     <Flex direction={'row'} mb={1} gap={2} alignItems={'center'}>
-                        <Level value={m.user.level} />
                         <Text color='gray.300' fontWeight='bold' fontSize={'lg'}>{m.user.display_name}</Text>
                     </Flex>
 
@@ -86,19 +86,25 @@ const ChatScreen = () => {
     return (
         <section className={styles.chat}>
             <div className="container">
-                <Box bg={'gray.800'} className={styles.chatInner}>
+                <Box bg={'gray.800'} borderRadius={8}
+                    p={2}
+                    mb={2}>
+                    <Flex direction={'row'} p={2} gap={2} justifyContent={'space-between'}
+                        alignItems={'center'}>
+                        <Text color={'#fff'}>Чат уровня</Text>
+                        <Level value={1} />
+                    </Flex>
+                </Box>
+                <Box bg={'gray.800'} borderRadius={8}
+                     className={styles.chatInner}>
                     {!loaded ? (
                         <Spinner />
                     ) : renderedChatMessages}
                 </Box>
-                <Flex bg={'gray.800'} p={3} m={2} borderRadius={16} direction={'row'} className={styles.chatForm}>
+                <Flex bg={'gray.800'} p={3} borderRadius={16} direction={'row'} className={styles.chatForm}>
                     <form onSubmit={sendMessage}>
-                        <Flex direction={'column'}>
-                            <Text color={'gray.300'} mb={2}>
-                                В чате вы можете общаться с учащийся вашего уровня
-                            </Text>
-
-                            <Box mb={2}>
+                        <Flex direction={'row'} w={'100%'} gap={4}>
+                            <Box mb={2} w={'100%'}>
                                 <Textarea placeholder='Напишите что-то в чат'
                                           color={'gray.200'}
                                           value={message}

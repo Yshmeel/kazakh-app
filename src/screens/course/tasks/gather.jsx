@@ -9,6 +9,7 @@ import {Icon} from "@chakra-ui/icons";
 const CourseTaskGather = (props) => {
     const {
         dataset,
+        disabled,
         onCompleteTask,
         onFailTask
     } = props;
@@ -19,6 +20,10 @@ const CourseTaskGather = (props) => {
     const appContext = useContext(AppContext);
 
     const selectWord = (word) => () => {
+        if(disabled) {
+            return;
+        }
+
         setSelectedWords((prev) => {
             if(!prev.includes(word)) {
                 return [
